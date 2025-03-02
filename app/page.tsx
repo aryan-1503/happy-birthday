@@ -44,7 +44,7 @@ export default function Home() {
                 <div className="space-y-6">
                     <div className="space-y-2">
                         <Label htmlFor="name" className="text-lg">
-                            Who's celebrating their birthday?
+                            Who&apos;s celebrating their birthday?
                         </Label>
                         <div className="grid w-full max-w-sm items-center gap-4 mt-4">
                             <div className="grid gap-1.5">
@@ -52,7 +52,7 @@ export default function Home() {
                                 <Input
                                     id="name"
                                     placeholder="Enter their name"
-                                    className="text-xl py-6"
+                                    className="text-lg py-6"
                                     required
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
