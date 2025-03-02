@@ -52,16 +52,14 @@ export default function BirthdayGreeting() {
                     Happy Birthday!
                 </motion.h2>
 
-                {image && (
-                    <motion.img
-                        src={imageUrl!}
-                        alt="Uploaded"
-                        className="w-64 h-64 object-cover rounded-full mx-auto border-4 border-pink-500 shadow-lg mb-4"
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: 0.4 }}
-                    />
-                )}
+                <motion.img
+                    src={imageUrl!}
+                    alt="Uploaded"
+                    className="w-64 h-64 object-cover rounded-full mx-auto border-4 border-pink-500 shadow-lg mb-4"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                />
 
                 <motion.div
                     className="text-2xl font-medium mb-6"
@@ -70,7 +68,7 @@ export default function BirthdayGreeting() {
                     transition={{ delay: 0.4 }}
                 >
                     <span className="block">Wishing</span>
-                    <span className="text-3xl font-bold text-pink-600 block my-2">{name.toUpperCase()}</span>
+                    <span className="text-3xl font-bold text-pink-600 block my-2">{name}</span>
                     <span className="block">an amazing day filled with joy!</span>
                 </motion.div>
             </motion.div>
