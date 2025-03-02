@@ -13,7 +13,6 @@ export default function BirthdayGreeting() {
     const name = params?.name ? decodeURIComponent(params.name as string) : "Guest";
     const imageUrl = searchParams.get("image");
     const [isConfettiActive, setIsConfettiActive] = useState(false);
-    const [image, setImage] = useState<string | null>(null);
 
     useEffect(() => {
         setIsConfettiActive(true);
