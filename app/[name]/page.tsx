@@ -17,9 +17,6 @@ export default function BirthdayGreeting() {
     useEffect(() => {
         setIsConfettiActive(true);
 
-        const storedImage = localStorage.getItem("birthdayImage");
-        if (storedImage) setImage(storedImage);
-
         const timer = setTimeout(() => setIsConfettiActive(false), 5000);
         return () => clearTimeout(timer);
     }, []);
