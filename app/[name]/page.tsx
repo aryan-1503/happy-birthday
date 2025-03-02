@@ -54,7 +54,7 @@ export default function BirthdayGreeting() {
 
                 {image && (
                     <motion.img
-                        src={imageUrl}
+                        src={imageUrl!}
                         alt="Uploaded"
                         className="w-64 h-64 object-cover rounded-full mx-auto border-4 border-pink-500 shadow-lg mb-4"
                         initial={{ scale: 0.8, opacity: 0 }}
