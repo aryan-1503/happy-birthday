@@ -67,9 +67,9 @@ export default function BirthdayGreeting() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
                 >
-                    <span className="block">Wishing</span>
+                    <span className="block text-gray-800">Wishing</span>
                     <span className="text-3xl font-bold text-pink-600 block my-2">{name}</span>
-                    <span className="block">an amazing day filled with joy!</span>
+                    <span className="block text-gray-800">an amazing day filled with joy!</span>
                 </motion.div>
             </motion.div>
         </div>
