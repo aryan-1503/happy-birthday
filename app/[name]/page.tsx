@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation"; // Import useParams from next/navigation
+import {useParams, useSearchParams} from "next/navigation"; // Import useParams from next/navigation
 import { motion } from "framer-motion";
 import { PartyPopper } from "lucide-react";
 import Confettis from "../../components/confetti";
 
 export default function BirthdayGreeting() {
-    const params = useParams(); // Retrieve params correctly
-    const name = params?.name ? decodeURIComponent(params.name as string) : "Guest"; // Ensure it's a string
+    const params = useParams();
+    const searchParams = useSearchParams();
 
+    const name = params?.name ? decodeURIComponent(params.name as string) : "Guest";
+    const imageUrl = searchParams.get("image");
     const [isConfettiActive, setIsConfettiActive] = useState(false);
     const [image, setImage] = useState<string | null>(null);
 
@@ -52,7 +54,7 @@ export default function BirthdayGreeting() {
 
                 {image && (
                     <motion.img
-                        src={image}
+                        src={imageUrl}
                         alt="Uploaded"
                         className="w-64 h-64 object-cover rounded-full mx-auto border-4 border-pink-500 shadow-lg mb-4"
                         initial={{ scale: 0.8, opacity: 0 }}

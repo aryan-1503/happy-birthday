@@ -18,20 +18,29 @@ export default function Home() {
         }
     };
 
-    const handleClick = () => {
+    const handleClick = async () => {
         if (!name) return;
 
+        let imageUrl = "";
+
         if (image) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                localStorage.setItem("birthdayImage", reader.result as string);
-                router.push(`/${encodeURIComponent(name)}`);
-            };
-            reader.readAsDataURL(image);
-        } else {
-            router.push(`/${encodeURIComponent(name)}`);
+            const formData = new FormData();
+            formData.append("file", image);
+            formData.append("upload_preset", "happy-birthday");
+            formData.append("cloud_name", "dohfvbmex");
+
+            const res = await fetch("https://api.cloudinary.com/v1_1/dohfvbmex/image/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await res.json();
+            imageUrl = data.secure_url;
         }
+
+        router.push(`/${encodeURIComponent(name)}?image=${encodeURIComponent(imageUrl)}`);
     };
+
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-100 flex flex-col items-center justify-center p-4 relative overflow-hidden">
@@ -52,7 +61,7 @@ export default function Home() {
                                 <Input
                                     id="name"
                                     placeholder="Enter their name"
-                                    className="text-lg py-6"
+                                    className="text-lg   py-6"
                                     required
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
